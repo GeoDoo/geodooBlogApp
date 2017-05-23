@@ -14,6 +14,8 @@ import {
   View
 } from 'react-native';
 
+import api from './utils/api';
+
 export default class GeodooBlog extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +26,6 @@ export default class GeodooBlog extends Component {
   }
 
   _renderPostsList() {
-    // console.log(this.state.posts)
     return this.state.posts.map(post => {
       console.log(post)
       return <Text key={post.id} onPress={() => Linking.openURL(post.link)}>{post.title.rendered}</Text>
@@ -32,16 +33,16 @@ export default class GeodooBlog extends Component {
   }
 
   _getPostsFromApiAsync() {
-    return fetch('http://geodoo.work/wp-json/wp/v2/posts')
-      .then((response) => response.json())
-      .then((json) => {
-        this.setState({
-          posts: json
-        });
-      })
-      .catch((error) => {
-        console.error(error);
+    console.log(api)
+    api.fetchPosts()
+    .then((json) => {
+      this.setState({
+        posts: json
       });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   }
 
   componentDidMount() {
