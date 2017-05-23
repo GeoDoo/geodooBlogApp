@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Linking,
+  ActivityIndicator,
   Text,
   View
 } from 'react-native';
@@ -13,7 +14,8 @@ export default class MainScreen extends Component {
     super(props);
 
     this.state = {
-      posts: []
+      posts: [],
+      animating: true,
     };
   }
 
@@ -31,7 +33,8 @@ export default class MainScreen extends Component {
     api.fetchPosts()
     .then((json) => {
       this.setState({
-        posts: json
+        posts: json,
+        animating: !this.state.animating
       });
     })
     .catch((error) => {
@@ -52,6 +55,11 @@ export default class MainScreen extends Component {
         <View style={styles.postsList}>
           {postsList}
         </View>
+        <ActivityIndicator
+          animating={this.state.animating}
+          style={[styles.centering, {height: 80}]}
+          size="large"
+        />
       </View>
     );
   }
