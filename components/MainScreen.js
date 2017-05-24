@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Linking,
+  Image,
   ActivityIndicator,
   Text,
   View
 } from 'react-native';
-
 import api from '../utils/api';
 
 export default class MainScreen extends Component {
@@ -24,8 +24,9 @@ export default class MainScreen extends Component {
   };
 
   _renderPostsList() {
+    const { navigate } = this.props.navigation;
     return this.state.posts.map(post => {
-      return <Text key={post.id} onPress={() => Linking.openURL(post.link)}>{post.title.rendered}</Text>
+      return <Text key={post.id} onPress={() => navigate('SinglePost', {url: post.link})}>{post.title.rendered}</Text>
     });
   }
 
@@ -47,17 +48,20 @@ export default class MainScreen extends Component {
   }
 
   render() {
+    let img = 'http://geodoo.work/wp-content/uploads/2016/12/reactjs.png';
     const postsList = this._renderPostsList();  
 
     return (
       <View style={styles.container}>
+        <Image 
+          style={{width: 120, height: 120}}
+          source={{uri: img}} />
         <Text style={styles.welcome}>Welcome to my blog!</Text>
         <View style={styles.postsList}>
           {postsList}
         </View>
         <ActivityIndicator
           animating={this.state.animating}
-          style={[styles.centering, {height: 80}]}
           size="large"
         />
       </View>
