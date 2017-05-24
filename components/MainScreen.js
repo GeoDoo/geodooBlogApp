@@ -26,7 +26,7 @@ export default class MainScreen extends Component {
   _renderPostsList() {
     const { navigate } = this.props.navigation;
     return this.state.posts.map(post => {
-      return <Text key={post.id} onPress={() => navigate('SinglePost', {url: post.link})}>{post.title.rendered}</Text>
+      return <Text key={post.id} onPress={() => navigate('SinglePost', {title: post.title.rendered, url: post.link})}>{post.title.rendered}</Text>
     });
   }
 

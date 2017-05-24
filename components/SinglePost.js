@@ -6,13 +6,9 @@ import {
 } from 'react-native';
 
 export default class SinglePost extends Component {
-  static navigationOptions = {
-    title: 'Single post'
-  };  
-
-  componentDidMount() {
-    console.log(this.props.navigation.state.params.url)
-  }
+  static navigationOptions = ({ navigation }) => ({
+    title: `${navigation.state.params.title}`,
+  });
 
   render() {
     return (
