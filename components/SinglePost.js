@@ -5,7 +5,7 @@ import {
   View
 } from 'react-native';
 
-export default class SinglePost extends Component {
+class SinglePost extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: `${navigation.state.params.title}`,
   });
@@ -27,3 +27,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   }
 });
+
+export default SinglePost;

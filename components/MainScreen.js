@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import api from '../utils/api';
 
-export default class MainScreen extends Component {
+class MainScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -85,3 +85,5 @@ const styles = StyleSheet.create({
     width: '80%'
   }
 });
+
+export default MainScreen;
