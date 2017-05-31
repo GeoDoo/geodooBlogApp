@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  WebView,
+  ScrollView,
+  Text,
   View
 } from 'react-native';
+import HTMLView from 'react-native-htmlview';
 
 class SinglePost extends Component {
   static navigationOptions = ({ navigation }) => ({
-    title: `${navigation.state.params.title}`,
+    title: `${navigation.state.params.post.title.rendered}`,
   });
 
   render() {
+    console.log(this.props.navigation.state.params.post)
+    const {
+      title,
+      content
+    } = this.props.navigation.state.params.post;
     return (
-      <WebView 
-        source={{uri: this.props.navigation.state.params.url}}
-      />
+      <ScrollView> 
+        <Text style={{fontSize:24}}>{title.rendered}</Text>
+        <HTMLView value={content.rendered} />
+      </ScrollView>
     );
   }
 }

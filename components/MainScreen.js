@@ -25,7 +25,7 @@ class MainScreen extends Component {
   _renderPostsList() {
     const { navigate } = this.props.navigation;
     return this.state.posts.map(post => {
-      return <Text key={post.id} onPress={() => navigate('SinglePost', {title: post.title.rendered, url: post.link})}>{post.title.rendered}</Text>
+      return <Text className={styles.listItem} key={post.id} onPress={() => navigate('SinglePost', {post: post})}>{post.title.rendered}</Text>
     });
   }
 
@@ -52,12 +52,12 @@ class MainScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <Image 
-          style={{width: 120, height: 120}}
-          source={{uri: img}} />
-        <Text style={styles.welcome}>Welcome to my blog!</Text>
         <View style={styles.postsList}>
-          {postsList}
+          <Image 
+            style={{width: 120, height: 120}}
+            source={{uri: img}} />
+          <Text style={styles.welcome}>Welcome to my blog!</Text>
+            {postsList}
         </View>
         <ActivityIndicator
           animating={this.state.animating}
@@ -83,6 +83,9 @@ const styles = StyleSheet.create({
   postsList: {
     margin: 'auto',
     width: '80%'
+  },
+  listItem: {
+    marginBottom: 30
   }
 });
 
