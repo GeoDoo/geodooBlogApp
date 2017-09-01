@@ -6,7 +6,7 @@ import {
   Text,
   View
 } from 'react-native';
-import api from '../utils/api';
+import api from '../../utils/api';
 
 class MainScreen extends Component {
   constructor(props) {
