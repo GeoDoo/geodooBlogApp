@@ -6,6 +6,7 @@ import {
   View
 } from 'react-native';
 import HTMLView from 'react-native-htmlview';
+import styles from './styles';
 
 class SinglePost extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -26,14 +27,5 @@ class SinglePost extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
-});
 
 export default SinglePost;

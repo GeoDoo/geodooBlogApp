@@ -6,6 +6,7 @@ import {
   Text,
   View
 } from 'react-native';
+import styles from './styles';
 import api from '../../utils/api';
 
 class MainScreen extends Component {
@@ -67,26 +68,5 @@ class MainScreen extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  postsList: {
-    margin: 'auto',
-    width: '80%'
-  },
-  listItem: {
-    marginBottom: 30
-  }
-});
 
 export default MainScreen;
