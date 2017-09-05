@@ -3,21 +3,23 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
+  recentPostsTitle: {
+    // fontFamily: 'sans-serif'
     textAlign: 'center',
-    margin: 10,
+    marginTop: 15,
+    marginBottom: 15,
+    fontSize: 20
   },
-  postsList: {
-    margin: 'auto',
-    width: '80%'
+  innerPadding: {
+    alignItems: 'center'
   },
   listItem: {
-    marginBottom: 30
+    marginTop: 20,
+    marginBottom: 20
   }
 });
 

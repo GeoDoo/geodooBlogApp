@@ -4,7 +4,8 @@ import {
   Image,
   ActivityIndicator,
   Text,
-  View
+  View,
+  ScrollView
 } from 'react-native';
 import styles from './styles';
 import api from '../../utils/api';
@@ -26,7 +27,7 @@ class MainScreen extends Component {
   _renderPostsList() {
     const { navigate } = this.props.navigation;
     return this.state.posts.map(post => {
-      return <Text key={post.id} onPress={() => navigate('SinglePost', {post: post})}>{post.title.rendered}</Text>
+      return <Text style={styles.listItem} key={post.id} onPress={() => navigate('SinglePost', {post: post})}>{post.title.rendered}</Text>
     });
   }
 
@@ -53,13 +54,12 @@ class MainScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <Image 
-          style={{width: 120, height: 120}}
-          source={{uri: img}} />
-        <View style={styles.postsList}>
-          <Text style={styles.welcome}>Welcome to my blog!</Text>
+        <Text style={styles.recentPostsTitle}>Recent Posts</Text>
+        <ScrollView>
+          <View style={styles.innerPadding}>
             {postsList}
-        </View>
+          </View>
+        </ScrollView>
         <ActivityIndicator
           animating={this.state.animating}
           size="large"
