@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#F5FCFF'
   },
   recentPostsTitle: {
     fontFamily: 'AdventPro-Regular',
@@ -18,6 +18,8 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   listItem: {
+    fontFamily: 'Ubuntu-Regular',
+    fontSize: 12,
     marginTop: 20,
     marginBottom: 20
   }
