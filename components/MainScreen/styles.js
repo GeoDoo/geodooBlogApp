@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   recentPostsTitle: {
-    // fontFamily: 'sans-serif'
+    fontFamily: 'AdventPro-Regular',
     textAlign: 'center',
     marginTop: 15,
     marginBottom: 15,

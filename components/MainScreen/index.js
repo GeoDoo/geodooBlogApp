@@ -59,11 +59,11 @@ class MainScreen extends Component {
           <View style={styles.innerPadding}>
             {postsList}
           </View>
+          <ActivityIndicator
+            animating={this.state.animating}
+            size="large"
+          />
         </ScrollView>
-        <ActivityIndicator
-          animating={this.state.animating}
-          size="large"
-        />
       </View>
     );
   }
