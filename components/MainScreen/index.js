@@ -11,14 +11,10 @@ import styles from './styles';
 import api from '../../utils/api';
 
 class MainScreen extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      posts: [],
-      animating: true,
-    };
-  }
+  state = {
+    posts: [],
+    animating: true,
+  };
 
   static navigationOptions = {
     title: 'Geodoo Work',
@@ -46,6 +42,7 @@ class MainScreen extends Component {
 
   componentDidMount() {
     this._getPostsFromApiAsync();
+    console.log('test console log')
   }
 
   render() {
@@ -54,8 +51,8 @@ class MainScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.recentPostsTitle}>Recent Posts</Text>
         <ScrollView>
+          <Text style={styles.recentPostsTitle}>Recent Posts</Text>
           <View style={styles.innerPadding}>
             {postsList}
           </View>
