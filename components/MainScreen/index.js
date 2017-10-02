@@ -7,6 +7,7 @@ import {
   View,
   ScrollView
 } from 'react-native';
+import moment from 'moment';
 import styles from './styles';
 import api from '../../utils/api';
 
@@ -20,10 +21,20 @@ class MainScreen extends Component {
     title: 'Geodoo Work',
   };
 
+  _renderDate(date) {
+    return moment(date).format('MMM DD')
+  }
+
   _renderPostsList() {
     const { navigate } = this.props.navigation;
     return this.state.posts.map(post => {
-      return <Text style={styles.listItem} key={post.id} onPress={() => navigate('SinglePost', {post: post})}>{post.title.rendered}</Text>
+      return (
+        <View key={post.id}>
+          <Text style={styles.listItem} onPress={() => navigate('SinglePost', {post})}>
+            {post.title.rendered}
+          </Text>
+          <Text>{this._renderDate(post.date)}</Text>
+        </View>)
     });
   }
 
@@ -42,11 +53,9 @@ class MainScreen extends Component {
 
   componentDidMount() {
     this._getPostsFromApiAsync();
-    console.log('test console log')
   }
 
   render() {
-    let img = 'http://geodoo.work/wp-content/uploads/2016/12/reactjs.png';
     const postsList = this._renderPostsList();  
 
     return (
