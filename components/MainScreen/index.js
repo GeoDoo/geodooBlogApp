@@ -4,6 +4,7 @@ import {
   ActivityIndicator,
   Text,
   View,
+  Button,
   ScrollView
 } from 'react-native';
 import moment from 'moment';
@@ -24,7 +25,7 @@ class MainScreen extends Component {
       color: "#dd9933",
       marginLeft: 20
     },
-    headerLeft: <Icon name="gear" style={styles.icon} />,
+    headerLeft: <Icon name="bars" style={styles.icon} />,
     headerRight: <Icon name="search" style={styles.icon} />
   };
 
@@ -73,6 +74,7 @@ class MainScreen extends Component {
           </Text>
           <View style={styles.innerPadding}>
             {postsList}
+            <Button title="Load more" onPress={() => alert('I love you!')} />
           </View>
           <ActivityIndicator
             animating={this.state.animating}
