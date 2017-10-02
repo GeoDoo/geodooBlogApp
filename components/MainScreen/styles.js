@@ -25,6 +25,11 @@ const styles = StyleSheet.create({
   },
   date: {
     marginLeft: 15
+  },
+  icon: {
+    padding: 15,
+    fontSize: 25,
+    color: '#dd9933'
   }
 });
 

@@ -7,6 +7,8 @@ import {
   ScrollView
 } from 'react-native';
 import moment from 'moment';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 import styles from './styles';
 import api from '../../utils/api';
 
@@ -18,6 +20,12 @@ class MainScreen extends Component {
 
   static navigationOptions = {
     title: 'Geodoo Work',
+    headerTitleStyle: {
+      color: "#dd9933",
+      marginLeft: 20
+    },
+    headerLeft: <Icon name="gear" style={styles.icon} />,
+    headerRight: <Icon name="search" style={styles.icon} />
   };
 
   _renderDate(date) {
@@ -60,7 +68,9 @@ class MainScreen extends Component {
     return (
       <View style={styles.container}>
         <ScrollView>
-          <Text style={styles.recentPostsTitle}>Modern Web Development and more... • A developer's journal</Text>
+          <Text style={styles.recentPostsTitle}>
+            Modern Web Development and more... • A developer's journal
+          </Text>
           <View style={styles.innerPadding}>
             {postsList}
           </View>
