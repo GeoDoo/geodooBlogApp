@@ -22,6 +22,9 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 20,
     marginBottom: 20
+  },
+  date: {
+    marginLeft: 15
   }
 });
 

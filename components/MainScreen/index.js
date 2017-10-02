@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Image,
   ActivityIndicator,
   Text,
   View,
@@ -32,23 +31,23 @@ class MainScreen extends Component {
         <View key={post.id}>
           <Text style={styles.listItem} onPress={() => navigate('SinglePost', {post})}>
             {post.title.rendered}
+            <Text style={styles.date}>{this._renderDate(post.date)}</Text>
           </Text>
-          <Text>{this._renderDate(post.date)}</Text>
         </View>)
     });
   }
 
   _getPostsFromApiAsync() {
     api.fetchPosts()
-    .then((json) => {
-      this.setState({
-        posts: json,
-        animating: !this.state.animating
+      .then((json) => {
+        this.setState({
+          posts: json,
+          animating: !this.state.animating
+        });
+      })
+      .catch((error) => {
+        console.error(error);
       });
-    })
-    .catch((error) => {
-      console.error(error);
-    });
   }
 
   componentDidMount() {
@@ -61,7 +60,7 @@ class MainScreen extends Component {
     return (
       <View style={styles.container}>
         <ScrollView>
-          <Text style={styles.recentPostsTitle}>Recent Posts</Text>
+          <Text style={styles.recentPostsTitle}>Modern Web Development and more... • A developer's journal</Text>
           <View style={styles.innerPadding}>
             {postsList}
           </View>
