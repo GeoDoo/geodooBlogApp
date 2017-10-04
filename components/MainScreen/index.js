@@ -83,13 +83,19 @@ class MainScreen extends Component {
     return (
       <View style={styles.container}>
         <ScrollView>
-          <Text style={styles.recentPostsTitle}>
-            {this.state.siteInfo}
-          </Text>
-          <View style={styles.innerPadding}>
-            {postsList}
-            { !this.state.animating && <Button title="Load more" onPress={() => {}} /> }
-          </View>
+          { 
+            !this.state.animating 
+            && 
+            <View>
+              <Text style={styles.recentPostsTitle}>
+                {this.state.siteInfo}
+              </Text>
+              <View style={styles.innerPadding}>
+                {postsList}
+                <Button title="Load more" onPress={() => {}} />
+              </View>
+            </View>
+          }
           <ActivityIndicator
             animating={this.state.animating}
             size="large"
