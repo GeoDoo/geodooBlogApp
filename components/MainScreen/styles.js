@@ -3,7 +3,8 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#F5FCFF'
   },
@@ -30,6 +31,9 @@ const styles = StyleSheet.create({
     padding: 15,
     fontSize: 25,
     color: '#dd9933'
+  },
+  indicator: {
+
   }
 });
 

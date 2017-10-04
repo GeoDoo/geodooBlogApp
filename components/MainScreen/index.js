@@ -99,6 +99,7 @@ class MainScreen extends Component {
           <ActivityIndicator
             animating={this.state.animating}
             size="large"
+            style={styles.indicator}
           />
         </ScrollView>
       </View>
