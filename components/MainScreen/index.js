@@ -15,6 +15,7 @@ import api from '../../utils/api';
 
 class MainScreen extends Component {
   state = {
+    siteInfo: '',
     posts: [],
     animating: true,
   };
@@ -46,7 +47,19 @@ class MainScreen extends Component {
     });
   }
 
-  _getPostsFromApiAsync() {
+  _getSiteInfo() {
+    api.fetchSiteInfo()
+      .then((json) => {
+        this.setState({
+          siteInfo: json.name + ' • ' + json.description
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  _getPostsFromApi() {
     api.fetchPosts()
       .then((json) => {
         this.setState({
@@ -60,7 +73,8 @@ class MainScreen extends Component {
   }
 
   componentDidMount() {
-    this._getPostsFromApiAsync();
+    this._getSiteInfo();
+    this._getPostsFromApi();
   }
 
   render() {
@@ -70,11 +84,11 @@ class MainScreen extends Component {
       <View style={styles.container}>
         <ScrollView>
           <Text style={styles.recentPostsTitle}>
-            Modern Web Development and more... • A developer's journal
+            {this.state.siteInfo}
           </Text>
           <View style={styles.innerPadding}>
             {postsList}
-            <Button title="Load more" onPress={() => alert('I love you!')} />
+            { !this.state.animating && <Button title="Load more" onPress={() => {}} /> }
           </View>
           <ActivityIndicator
             animating={this.state.animating}
