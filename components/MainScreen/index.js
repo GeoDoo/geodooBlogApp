@@ -92,14 +92,15 @@ class MainScreen extends Component {
               </Text>
               <View style={styles.innerPadding}>
                 {postsList}
-                <Button title="Load more" onPress={() => {}} />
+              </View>
+              <View style={styles.marginTop}>
+                <Button title="Load more" onPress={() => {}} color="#dd9933" />
               </View>
             </View>
           }
           <ActivityIndicator
             animating={this.state.animating}
             size="large"
-            style={styles.indicator}
           />
         </ScrollView>
       </View>

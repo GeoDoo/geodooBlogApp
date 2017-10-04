@@ -32,8 +32,9 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: '#dd9933'
   },
-  indicator: {
-
+  marginTop: {
+    marginTop: 20,
+    alignItems: 'center'
   }
 });
 
