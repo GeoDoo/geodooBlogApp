@@ -10,3 +10,7 @@ const api = {
 };
 
 export default api;
+
+// TODO 
+//   console.log(res.headers.map['x-wp-total'][0]); 
+//   console.log(res.headers.map['x-wp-totalpages'][0]); 
