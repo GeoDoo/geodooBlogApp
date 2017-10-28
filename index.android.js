@@ -6,8 +6,8 @@ import {
   StackNavigator,
 } from 'react-navigation';
 
-import MainScreen from './components/MainScreen';
-import SinglePost from './components/SinglePost';
+import MainScreen from './src/components/MainScreen';
+import SinglePost from './src/components/SinglePost';
 
 const GeodooBlog = StackNavigator({
   Main: {
