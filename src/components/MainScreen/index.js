@@ -10,12 +10,12 @@ import {
 import moment from 'moment';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import SiteInfo from './SiteInfo'
 import styles from './styles';
 import api from '../../utils/api';
 
 class MainScreen extends Component {
   state = {
-    siteInfo: '',
     posts: [],
     animating: true,
   };
@@ -47,18 +47,6 @@ class MainScreen extends Component {
     });
   }
 
-  _getSiteInfo() {
-    api.fetchSiteInfo()
-      .then((json) => {
-        this.setState({
-          siteInfo: json.name + ' • ' + json.description
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
-
   _getPostsFromApi() {
     api.fetchPosts()
       .then((json) => {
@@ -73,7 +61,6 @@ class MainScreen extends Component {
   }
 
   componentDidMount() {
-    this._getSiteInfo();
     this._getPostsFromApi();
   }
 
@@ -87,9 +74,7 @@ class MainScreen extends Component {
             !this.state.animating 
             && 
             <View>
-              <Text style={styles.recentPostsTitle}>
-                {this.state.siteInfo}
-              </Text>
+              <SiteInfo />
               <View style={styles.innerPadding}>
                 {postsList}
               </View>
