@@ -44,10 +44,12 @@ const styles = StyleSheet.create({
   listItemWrapper: {
     paddingLeft: 10,
     paddingRight: 10,
-    flex: 4,
-    flexDirection: 'row',
     borderBottomColor: '#DDDDDD',
     borderBottomWidth: 2
+  },
+  touchableOpacity: {
+    flex: 4,
+    flexDirection: 'row',    
   }
 })
 
