@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
-import _ from 'underscore'
 import moment from 'moment'
 import styles from './styles'
 
