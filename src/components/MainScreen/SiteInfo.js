@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 
-import api from '../../utils/api';
-import styles from './styles';
+import api from '../../utils/api'
+import styles from './styles'
 
 class SiteInfo extends Component {
 	state = {

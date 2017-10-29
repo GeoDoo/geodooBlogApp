@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
@@ -10,9 +10,11 @@ const styles = StyleSheet.create({
   },
   recentPostsTitle: {
     fontFamily: 'AdventPro-Regular',
-    textAlign: 'center',
+    textAlign: 'left',
     marginTop: 15,
     marginBottom: 15,
+    paddingLeft: 10,
+    paddingRight: 10,
     fontSize: 20
   },
   innerPadding: {
@@ -36,6 +38,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignItems: 'center'
   }
-});
+})
 
 export default styles
