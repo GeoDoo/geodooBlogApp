@@ -7,10 +7,10 @@ import {
   Button,
   ScrollView
 } from 'react-native'
-import moment from 'moment'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 import SiteInfo from './SiteInfo'
+import PostsList from './PostsList'
 import styles from './styles'
 import api from '../../utils/api'
 
@@ -28,23 +28,6 @@ class MainScreen extends Component {
     },
     headerLeft: <Icon name="bars" style={styles.icon} />,
     headerRight: <Icon name="search" style={styles.icon} />
-  }
-
-  _renderDate(date) {
-    return moment(date).format('MMM DD')
-  }
-
-  _renderPostsList() {
-    const { navigate } = this.props.navigation
-    return this.state.posts.map(post => {
-      return (
-        <View key={post.id}>
-          <Text style={styles.listItem} onPress={() => navigate('SinglePost', {post})}>
-            {post.title.rendered}
-            <Text style={styles.date}>{this._renderDate(post.date)}</Text>
-          </Text>
-        </View>)
-    })
   }
 
   _getPostsFromApi() {
@@ -65,8 +48,6 @@ class MainScreen extends Component {
   }
 
   render() {
-    const postsList = this._renderPostsList()  
-
     return (
       <View style={styles.container}>
         <ScrollView>
@@ -75,9 +56,10 @@ class MainScreen extends Component {
             && 
             <View>
               <SiteInfo />
-              <View style={styles.innerPadding}>
-                {postsList}
-              </View>
+              <PostsList 
+                posts={this.state.posts}
+                navigation={this.props.navigation}
+              />
               <View style={styles.marginTop}>
                 <Button title="Load more" onPress={() => {}} color="#dd9933" />
               </View>
