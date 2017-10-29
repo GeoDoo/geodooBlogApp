@@ -48,6 +48,7 @@ class MainScreen extends Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation
     return (
       <View style={styles.container}>
         <ScrollView>
@@ -58,7 +59,7 @@ class MainScreen extends Component {
               <SiteInfo />
               <PostsList 
                 posts={this.state.posts}
-                navigation={this.props.navigation}
+                navigate={navigate}
               />
               <View style={styles.marginTop}>
                 <Button title="Load more" onPress={() => {}} color="#dd9933" />

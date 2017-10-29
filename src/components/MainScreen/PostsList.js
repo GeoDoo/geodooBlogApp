@@ -11,13 +11,12 @@ class PostsList extends Component {
 
   renderPostsList() {
     const { navigate, posts } = this.props
-    const onPressFunc = () => navigate('SinglePost', {post})
     return posts.map(post => {
       return (
         <PostsListItem 
         	key={post.id}
         	post={post}
-        	onPress={onPressFunc}
+        	onPress={() => navigate('SinglePost', {post})}
         />
       )
     })
