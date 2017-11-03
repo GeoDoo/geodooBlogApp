@@ -19,7 +19,8 @@ class MainScreen extends Component {
     posts: [],
     animating: true,
     totalPages: 0,
-    totalNumberOfPosts: 0
+    totalNumberOfPosts: 0,
+    activePageOfPosts: 1
   }
 
   static navigationOptions = {
@@ -30,20 +31,19 @@ class MainScreen extends Component {
   }
 
   _getPostsFromApi() {
+    let totalPages, totalNumberOfPosts
     api.fetchPosts()
       .then((res) => {
-        const totalPages = res.headers.map['x-wp-totalpages'][0]
-        const totalNumberOfPosts = res.headers.map['x-wp-total'][0]
-        this.setState({
-          totalPages,
-          totalNumberOfPosts
-        })
+        totalPages = res.headers.map['x-wp-totalpages'][0]
+        totalNumberOfPosts = res.headers.map['x-wp-total'][0]
         return res.json()
       })
       .then((json) => {
         this.setState({
           posts: json,
-          animating: !this.state.animating
+          animating: !this.state.animating,
+          totalPages,
+          totalNumberOfPosts
         })
       })
       .catch((error) => {
