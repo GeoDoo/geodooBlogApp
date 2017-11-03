@@ -5,12 +5,8 @@ const api = {
 	},
 	fetchPosts() {
 		let url = 'https://geodoo.work/wp-json/wp/v2/posts';
-		return fetch(url).then((res) => res.json());
+		return fetch(url);
 	}
 };
 
 export default api;
-
-// TODO 
-//   console.log(res.headers.map['x-wp-total'][0]); 
-//   console.log(res.headers.map['x-wp-totalpages'][0]); 
