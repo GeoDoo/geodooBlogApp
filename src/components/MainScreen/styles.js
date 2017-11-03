@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     borderBottomColor: '#DDDDDD',
-    borderBottomWidth: 2
+    borderBottomWidth: 1
   },
   touchableOpacity: {
     flex: 4,
