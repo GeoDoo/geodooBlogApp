@@ -22,10 +22,7 @@ class MainScreen extends Component {
 
   static navigationOptions = {
     title: 'Geodoo Work',
-    headerTitleStyle: {
-      color: "#dd9933",
-      marginLeft: 20
-    },
+    headerTitleStyle: styles.headerTitleStyle,
     headerLeft: <Icon name="bars" style={styles.icon} />,
     headerRight: <Icon name="search" style={styles.icon} />
   }

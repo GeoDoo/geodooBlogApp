@@ -1,12 +1,19 @@
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
+  headerTitleStyle: {
+    fontFamily: 'AdventPro-Regular',
+    fontSize: 22,
+    color: '#777777',
+    fontWeight: 'normal',
+    marginLeft: 20
+  },
   container: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#f5fcff'
   },
   recentPostsTitle: {
     fontFamily: 'AdventPro-Regular',
@@ -34,7 +41,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     padding: 15,
-    fontSize: 25,
+    fontSize: 24,
     color: '#dd9933'
   },
   marginTop: {
@@ -44,7 +51,7 @@ const styles = StyleSheet.create({
   listItemWrapper: {
     paddingLeft: 10,
     paddingRight: 10,
-    borderBottomColor: '#DDDDDD',
+    borderBottomColor: '#dddddd',
     borderBottomWidth: 1
   },
   touchableOpacity: {
