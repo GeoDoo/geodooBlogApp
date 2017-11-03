@@ -30,7 +30,7 @@ class MainScreen extends Component {
     headerRight: <Icon name="search" style={styles.icon} />
   }
 
-  _getPostsFromApi() {
+  getPostsFromApi() {
     let totalPages, totalNumberOfPosts
     api.fetchPosts()
       .then((res) => {
@@ -52,11 +52,10 @@ class MainScreen extends Component {
   }
 
   componentDidMount() {
-    this._getPostsFromApi()
+    this.getPostsFromApi()
   }
 
   render() {
-    console.log(this.state)
     const { navigate } = this.props.navigation
     return (
       <View style={styles.container}>
