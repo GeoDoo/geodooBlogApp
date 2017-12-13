@@ -14,7 +14,6 @@ class SinglePost extends Component {
   });
 
   render() {
-    // console.log(this.props.navigation.state.params.post)
     const {
       title,
       content
