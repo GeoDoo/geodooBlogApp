@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "commit": "git-cz"
   },
   "dependencies": {
     "moment": "2.18.1",
@@ -19,6 +20,8 @@
   "devDependencies": {
     "babel-jest": "20.0.3",
     "babel-preset-react-native": "1.9.2",
+    "commitizen": "2.9.6",
+    "cz-conventional-changelog": "2.1.0",
     "ghooks": "2.0.2",
     "jest": "20.0.3",
     "react-test-renderer": "16.0.0-alpha.6"
@@ -38,6 +41,9 @@
     ]
   },
   "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    },
     "ghooks": {
       "pre-commit": "npm test"
     }

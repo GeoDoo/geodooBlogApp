@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import moment from 'moment'
+import { transformApostrophe } from '../../utils/helpers'
 import styles from './styles'
 
 const renderDate = (date) => moment(date).format('MMM DD')
@@ -13,7 +14,7 @@ const PostsListItem = ({ post, onPress }) => (
 		>
 			<View style={{flex: 3}}>
 		    <Text style={styles.listItem}>
-		      {post.title.rendered}
+		      {transformApostrophe(post.title.rendered)}
 		    </Text>
 			</View>
 			<View style={{flex: 1, alignSelf: 'center'}}>
