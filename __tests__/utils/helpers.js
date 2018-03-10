@@ -7,7 +7,7 @@ describe('transformApostrophe function', () => {
 		expect(transformApostrophe(ascii)).toEqual('\'')
 	})
 
-	it('returns the otiginal string', () => {
+	it('returns the original string', () => {
 		const string = 'adasda'
 
 		expect(transformApostrophe(string)).toBe(string)
